@@ -72,10 +72,6 @@ You will face some errors while using pygroupbot.
 
 2. **Bad request from telegram api. [Cannot run bot. check your internet connection]. ERROR_400** - This error saying bot has problem with connecting to the telegram api. Check your device internet connection. Or create new bot token from Bot Father and give it to the bot.
 
-```python
-pygroupbot.token("<NEW_BOT_TOKEN>")
-```
-
 3. **Python version error. PyGroupBot bot need python3** - If you see this error you have to update your python version. pygroupbot can't run on python 2. It's very old version. All potato pc's can run python 3.2. So why are you using python2?
 
 **This errors only showing with pygroupbot. The errors from pytelegrambotapi not here!**
