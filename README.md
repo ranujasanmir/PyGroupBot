@@ -73,12 +73,12 @@ pygroupbot.run(True)
 
 **How to Bold / Italic and Create Links:**
 
-With the `Pygroupbot v1.2.2` we initialized `parse_mode` to bot. Telegram bots has two parse_mode. First one is `Markdown`. In this parse mode you can bold text using '**' symbol and italic text using '_' like in the bellow example:
+With the `Pygroupbot v1.2.2` we initialized `parse_mode` to bot. Telegram bots has two parse_mode. First one is `Markdown`. In this parse mode you can bold text using '**' symbol and italic text using '__' like in the bellow example:
 
 ```python
 pygroupbot.bot.token("<TOKEN>", mode= "Markdown")
 
-paygroupbot.start_message("**Hello Dear!** _I am the PyGroupBot_")
+paygroupbot.start_message("*Hello Dear!* _I am the PyGroupBot_")
 ```
 
 We suggest to you use `html` as parse_mode. You can bold text with '<b></b>', italic text with '<i></i>' and create links with '<a href="google.com">Link</a>' like in the bellow example:
