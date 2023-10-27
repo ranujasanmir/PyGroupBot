@@ -1,5 +1,5 @@
 
-![Python Version](https://img.shields.io/badge/python-3.9-blue.svg)
+![Python Version](https://img.shields.io/badge/python-3.5-blue.svg)
 
 **_`pygroupbot` is python library that can you help to create your own simple telegram group manage bot._**
 
