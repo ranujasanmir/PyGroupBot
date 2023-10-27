@@ -81,7 +81,7 @@ pygroupbot.bot.token("<TOKEN>", mode= "Markdown")
 paygroupbot.start_message("*Hello Dear!* _I am the PyGroupBot_")
 ```
 
-We suggest to you use `html` as parse_mode. You can bold text with '<b></b>', italic text with '<i></i>' and create links with '<a href="google.com">Link</a>' like in the bellow example:
+We suggest to you use `html` as parse_mode. You can bold text with '<b></b>', italic text with '<i></i>' and create links with 'a' tag using in html like in the bellow example:
 
 ```python
 pygroupbot.bot.token("<TOKEN>", mode= "html")
