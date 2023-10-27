@@ -42,26 +42,51 @@ import pygroupbot
 
 ### Examples
 
-Normal example
+Genaral example:
 
 ```python
 import pygroupbot # Importing PyGroupBot
 
-token = "<YOUR-TELEGRAM-BOT-TOKEN>" # Initializing Bot Token(Get it from @botfather)
+pygroupbot.bot.token("<NEW_BOT_TOKEN>", parse_mode= "html") # Initializing Bot Token and parse_mode. Also you can use 'Markdown' to parse_mode
 
 start_message = "Hi I'm group manage bot" # Message you want to show when user said /start
 menu_message = "Here is a my all commands" # Message you want to show when user said /menu
 help_message = "Get my help" # Message you want to show when user said /help
+info_message = "This is the Group Manage bot" # Message you want to show when user said /info
 kick_message = "User kicked from group" # Message you want to show after user kick
 ban_message = "User banned from group" # Message you want to show after user ban
 unban_message = "User unbanned from group" # Message you want to show after  user unban
 
-# For run bot without stoping and provide all your message text to bot.
-pygroupbot.online(start_message, menu_message, help_message, kick_message, ban_message, unban_message, token)
+# Input variables to bot
+pygroupbot.start_message(start_message)
+pygroupbot.menu_message(menu_message)
+pygroupbot.help_message(help_message)
+pygroupbot.info_message(info_message)
+pygroupbot.kick_message(kick_message)
+pygroupbot.ban_message(ban_message)
+pygroupbot.unban_message(unban_message)
 
-# You have to follow this example. You have to provide all message text a-z. If not bot will not run.
-# Created by Ranuja Sanmira, PixCap TM.
-# This library is not open source!
+# Run bot without stoping
+pygroupbot.run(True)
+
+```
+
+**How to Bold / Italic and Create Links:**
+
+With the `Pygroupbot v1.2.2` we initialized `parse_mode` to bot. Telegram bots has two parse_mode. First one is `Markdown`. In this parse mode you can bold text using '**' symbol and italic text using '_' like in the bellow example:
+
+```python
+pygroupbot.bot.token("<TOKEN>", parse_mode= "Markdown")
+
+paygroupbot.start_message("**Hello Dear!** _I am the PyGroupBot_")
+```
+
+We suggest to you use `html` as parse_mode. You can bold text with '<b></b>', italic text with '<i></i>' and create links with '<a href="google.com">Link</a>' like in the bellow example:
+
+```python
+pygroupbot.bot.token("<TOKEN>", parse_mode= "html")
+
+paygroupbot.start_message("<b>Hello Dear!</b>   <i>I am the PyGroupBot</i>   <a href='https://github.com/ranujasanmir/pygroupbot'>Go to github</a>")
 ```
 
 ### Errors
@@ -72,7 +97,23 @@ You will face some errors while using pygroupbot.
 
 2. **Bad request from telegram api. [Cannot run bot. check your internet connection]. ERROR_400** - This error saying bot has problem with connecting to the telegram api. Check your device internet connection. Or create new bot token from Bot Father and give it to the bot.
 
+```python
+pygroupbot.bot.token("<NEW_BOT_TOKEN>")
+```
+
 3. **Python version error. PyGroupBot bot need python3** - If you see this error you have to update your python version. pygroupbot can't run on python 2. It's very old version. All potato pc's can run python 3.2. So why are you using python2?
+
+4. **.run() only need boolean value!** - It's mean you entered wrong value to run() function. run() only need True or False values.
+
+```python
+pygroupbot.run(True)
+```
+
+5. **pygroupbot token must not be a null** - This saying you didn't entered token.
+
+6. **pygroupbot mode must not be a null** - To fix this error pass the parse_mode.
+
+7. **PyGroupBot Server Not Started Yet - Bot is Offline...** - If bot didn't running this error will be show. Make sure to make pygroupbot.run(True). If you entered False, bot will not run.
 
 **This errors only showing with pygroupbot. The errors from pytelegrambotapi not here!**
 
