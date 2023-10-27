@@ -18,7 +18,7 @@ setup(name='PygroupBot',
       license='BSD',
       classifiers = [
         'Environment :: Console',
-        'Intended Audience :: Telegram Bot Developers',
+        'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Natural Language :: English',
