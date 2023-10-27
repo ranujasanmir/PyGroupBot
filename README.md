@@ -47,7 +47,7 @@ Genaral example:
 ```python
 import pygroupbot # Importing PyGroupBot
 
-pygroupbot.bot.token("<BOT_TOKEN>", parse_mode= "html") # Initializing Bot Token and parse_mode. Also you can use 'Markdown' to parse_mode
+pygroupbot.bot.token("<BOT_TOKEN>", mode= "html") # Initializing Bot Token and parse_mode. Also you can use 'Markdown' to parse_mode
 
 start_message = "Hi I'm group manage bot" # Message you want to show when user said /start
 menu_message = "Here is a my all commands" # Message you want to show when user said /menu
@@ -76,7 +76,7 @@ pygroupbot.run(True)
 With the `Pygroupbot v1.2.2` we initialized `parse_mode` to bot. Telegram bots has two parse_mode. First one is `Markdown`. In this parse mode you can bold text using '**' symbol and italic text using '_' like in the bellow example:
 
 ```python
-pygroupbot.bot.token("<TOKEN>", parse_mode= "Markdown")
+pygroupbot.bot.token("<TOKEN>", mode= "Markdown")
 
 paygroupbot.start_message("**Hello Dear!** _I am the PyGroupBot_")
 ```
@@ -84,7 +84,7 @@ paygroupbot.start_message("**Hello Dear!** _I am the PyGroupBot_")
 We suggest to you use `html` as parse_mode. You can bold text with '<b></b>', italic text with '<i></i>' and create links with '<a href="google.com">Link</a>' like in the bellow example:
 
 ```python
-pygroupbot.bot.token("<TOKEN>", parse_mode= "html")
+pygroupbot.bot.token("<TOKEN>", mode= "html")
 
 paygroupbot.start_message("<b>Hello Dear!</b>   <i>I am the PyGroupBot</i>   <a href='https://github.com/ranujasanmir/pygroupbot'>Go to github</a>")
 ```
@@ -93,7 +93,7 @@ paygroupbot.start_message("<b>Hello Dear!</b>   <i>I am the PyGroupBot</i>   <a 
 
 You will face some errors while using pygroupbot.
 
-1. **bot hasn't admin rights. ERROR_523** - Bot hasn't admin rights. Promote your bot as admin.
+1. **Something Wrong. ERROR_523** - Something messing in the bot. Check bot admin rights..
 
 2. **Bad request from telegram api. [Cannot run bot. check your internet connection]. ERROR_400** - This error saying bot has problem with connecting to the telegram api. Check your device internet connection. Or create new bot token from Bot Father and give it to the bot.
 
