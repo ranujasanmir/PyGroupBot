@@ -121,9 +121,7 @@ pygroupbot.run(True)
 
 1. **Use Responsibly**: This python library is developed for only education purpose.
 
-2. **Objects**: pygroupbot has only 7 objects (start_msg, menu_msg, help_msg, kick_msg, ban_msg, unban_msg, token). You have to provide all of them a-z.
-
-3. **Privacy**: We do not store any details about you.
+2. **Privacy**: We do not store any details about you.
 
 ## License
 
