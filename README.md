@@ -47,7 +47,7 @@ Genaral example:
 ```python
 import pygroupbot # Importing PyGroupBot
 
-pygroupbot.bot.token("<NEW_BOT_TOKEN>", parse_mode= "html") # Initializing Bot Token and parse_mode. Also you can use 'Markdown' to parse_mode
+pygroupbot.bot.token("<BOT_TOKEN>", parse_mode= "html") # Initializing Bot Token and parse_mode. Also you can use 'Markdown' to parse_mode
 
 start_message = "Hi I'm group manage bot" # Message you want to show when user said /start
 menu_message = "Here is a my all commands" # Message you want to show when user said /menu

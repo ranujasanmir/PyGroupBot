@@ -1,7 +1,8 @@
 from setuptools import setup
 import sys, os.path, shutil
 
-
+with open("README.md", "r") as ld:
+    longdesc = ld.read()
 
 if sys.version_info.major < 3:
     sys.stderr.write("pysimpqr requires Python 3.2+ ")
@@ -28,7 +29,8 @@ setup(name='PygroupBot',
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.5',
         ],
-      install_requires = "pytelegrambotapi"
-      long_description = open("README.md").read()
+      install_requires = "pytelegrambotapi",
+      long_description = longdesc,
+      long_description_content_type = "text/markdown",
 )
 
