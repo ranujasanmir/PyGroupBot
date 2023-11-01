@@ -10,7 +10,7 @@ if sys.version_info.major < 3:
 
 setup(name='PygroupBot',
       packages=['pygroupbot'],
-      version="1.2.3",
+      version="1.2.4",
       description='pygroupbot is python library that can you help to create your own simple telegram group manage bot',
       author='PixCap TM',
       url='https://github.com/ranujasanmir/pygroupbot',
