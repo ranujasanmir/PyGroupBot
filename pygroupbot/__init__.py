@@ -34,81 +34,100 @@ def info_message(info_msg):
     def send_message(message):
         bot.reply_to(message, info_msg + "\n\nCreated with PyGroupBot Library...")
 
+
 def kick_message(kick_msg):
     @bot.message_handler(commands=["kick"]) 
     def send_message(message):
-            kicks = message.reply_to_message.from_user.id
-            if message.chat.type == "private":
-                bot.reply_to(message, "Kicking is only allowed in groups!")
-            elif kicks == message.from_user.id:
-                bot.reply_to(message, "Why are you trying to kick yourself?")
-            elif kicks == bot.get_me().id:
-                bot.reply_to(message, "Why I need to kick myself?")
+        if message.chat.type == 'private':  # Check if chat is private
+            bot.reply_to(message, "This is a private chat. Kicking users is only allowed in group chats.")
+            return
 
+        replied_message = message.reply_to_message
+    
+        if replied_message is None:  # If no message is replied to
+            bot.reply_to(message, "You must reply to a message to kick the user.")
+            return
+
+        kicked_user = replied_message.from_user.id
+        kicker_user = message.from_user.id
+
+        if kicked_user == kicker_user:
+            bot.reply_to(message, "Do you want to kick yourself? What happened to this world?")
+        elif kicked_user == bot.get_me().id:
+            bot.reply_to(message, "Why do I need to kick myself?")
+        else:
+            if bot.get_chat_member(message.chat.id, message.from_user.id).status in ["creator", "administrator"]:
+                try:
+                    bot.kick_chat_member(message.chat.id, kicked_user)
+                    bot.reply_to(message, kick_msg)
+                except Exception as errkick:
+                    print("bot hasn't admin rights. ERROR_523")
             else:
-                if bot.get_chat_member(message.chat.id, message.from_user.id).status in ["creator", "administrator"]:
-                    if message.reply_to_message:
-                        try:
-                            
-                            bot.kick_chat_member(message.chat.id, kicks)
-                            bot.reply_to(message, kick_msg)
-                        except Exception as errkick:
-                            raise Exception("bot hasn't admin rights. ERROR_523")
-                    else:
-                        bot.reply_to(message, "Reply to message from users to kick him")
-        
-                else:
-                    bot.reply_to(message, "You're not an admin of this group")
+                bot.reply_to(message, "You're not an admin of this group")
+
+
+
+
 
 def ban_message(ban_msg):
     @bot.message_handler(commands=["ban"]) 
     def send_message(message):
-            bans = message.reply_to_message.from_user.id
-            if message.chat.type == "private":
-                bot.reply_to(message, "Banning is only allowed in groups!")
-            elif bans == message.from_user.id:
-                bot.reply_to(message, "Why are you trying to ban yourself?")
-            elif bans == bot.get_me().id:
-                bot.reply_to(message, "Why I need to ban myself?")
+        if message.chat.type == 'private':  # Check if chat is private
+            bot.reply_to(message, "This is a private chat. Banning users is only allowed in group chats.")
+            return
+
+        replied_message = message.reply_to_message
+    
+        if replied_message is None:  # If no message is replied to
+            bot.reply_to(message, "You must reply to a message to ban the user.")
+            return
+
+        baned_user = replied_message.from_user.id
+        baner_user = message.from_user.id
+
+        if baned_user == baner_user:
+            bot.reply_to(message, "Do you want to ban yourself? What happened to this world?")
+        elif baned_user == bot.get_me().id:
+            bot.reply_to(message, "Why do I need to ban myself?")
+        else:
+            if bot.get_chat_member(message.chat.id, message.from_user.id).status in ["creator", "administrator"]:
+                try:
+                    bot.ban_chat_member(message.chat.id, baned_user)
+                    bot.reply_to(message, kick_msg)
+                except Exception as errkick:
+                    print("bot hasn't admin rights. ERROR_523")
             else:
-                if bot.get_chat_member(message.chat.id, message.from_user.id).status in ["creator", "administrator"]:
-                    if message.reply_to_message:
-                        try:
-                            
-                            bot.kick_chat_member(message.chat.id, bans)
-                            bot.reply_to(message, ban_msg)
-                        except Exception as errkick:
-                            raise Exception("bot hasn't admin rights. ERROR_523")
-                    else:
-                        bot.reply_to(message, "Reply to message from users to ban him")
-        
-                else:
-                    bot.reply_to(message, "You're not an admin of this group")
+                bot.reply_to(message, "You're not an admin of this group")
 
 def unban_message(unban_msg):
     @bot.message_handler(commands=["unban"])
     def send_message(message):
-            unbans = message.reply_to_message.from_user.id
-            if message.chat.type == "private":
-                bot.reply_to(message, "Unbanning is only allowed in groups!")
-            elif unbans == message.from_user.id:
-                bot.reply_to(message, "Why are you trying to unban yourself. Wait a minute... You're not banned!")
-            elif unbans == bot.get_me().id:
-                bot.reply_to(message, "I'm not banned like you!")
+        if message.chat.type == 'private':  # Check if chat is private
+            bot.reply_to(message, "This is a private chat. Unbanning users is only allowed in group chats.")
+            return
+
+        replied_message = message.reply_to_message
+    
+        if replied_message is None:  # If no message is replied to
+            bot.reply_to(message, "You must reply to a message to unban the user.")
+            return
+
+        unbaned_user = replied_message.from_user.id
+        unbaner_user = message.from_user.id
+
+        if unbaned_user == unbaner_user:
+            bot.reply_to(message, "You're not banned right now!")
+        elif unbaned_user == bot.get_me().id:
+            bot.reply_to(message, "Dude! I'm not banned!")
+        else:
+            if bot.get_chat_member(message.chat.id, message.from_user.id).status in ["creator", "administrator"]:
+                try:
+                    bot.unban_chat_member(message.chat.id, unbaned_user)
+                    bot.reply_to(message, kick_msg)
+                except Exception as errkick:
+                    print("bot hasn't admin rights. ERROR_523")
             else:
-                if bot.get_chat_member(message.chat.id, message.from_user.id).status in ["creator", "administrator"]:
-                    if message.reply_to_message:
-                        try:
-                            
-                            bot.kick_chat_member(message.chat.id, kicks)
-                            bot.reply_to(message, unban_msg)
-                        except Exception as errkick:
-                            raise Exception("bot hasn't admin rights. ERROR_523")
-                    else:
-                        bot.reply_to(message, "Reply to message from users to unban him")
-        
-                else:
-                    bot.reply_to(message, "You're not an admin of this group")
+                bot.reply_to(message, "You're not an admin of this group")
 
 
 def run(bool_value):
