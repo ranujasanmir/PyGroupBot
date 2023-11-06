@@ -1,6 +1,8 @@
 
 ![Python Version](https://img.shields.io/badge/python-3.5-blue.svg)
 
+**⚠️Since 2023/10/07 PixCap has closed due to financial difficulties. Please note that we will not be making any updates in the future.⛔**
+
 **_`pygroupbot` is python library that can you help to create your own simple telegram group manage bot._**
 
 ## Table of Contents
